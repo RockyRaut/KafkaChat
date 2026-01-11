@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: kafkachat-backend
+
+  
+  datasource:
+    url: jdbc:postgresql://postgres:5432/chat_db
+    username: rocky
+    password: rocky123
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 1200000
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: false
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:kafka:29092}
+    admin:
+      fail-fast: false
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: all
+    consumer:
+      bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:kafka:29092}
+      group-id: kafkachat-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+server:
+  port: 8080
+
+jwt:
+  secret: your_super_secret_jwt_key_change_this_in_production_at_least_256_bits_long
+  expiration: 86400000

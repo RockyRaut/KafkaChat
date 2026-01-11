@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Allow cleartext traffic for local development (localhost, 10.0.2.2 for emulator, local IPs) -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">10.0.2.2</domain>
+        <domain includeSubdomains="true">127.0.0.1</domain>
+        <domain includeSubdomains="true">192.168.0.0</domain>
+        <domain includeSubdomains="true">192.168.1.0</domain>
+        <domain includeSubdomains="true">192.168.2.0</domain>
+        <domain includeSubdomains="true">192.168.3.0</domain>
+        <domain includeSubdomains="true">192.168.4.0</domain>
+        <domain includeSubdomains="true">192.168.5.0</domain>
+    </domain-config>
+    
+    <!-- ngrok always uses HTTPS, but we allow it here for safety -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">ngrok-free.app</domain>
+        <domain includeSubdomains="true">ngrok.io</domain>
+        <domain includeSubdomains="true">ngrok.app</domain>
+    </domain-config>
+    
+    <!-- Base configuration: HTTPS required for all other domains -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
+
+
+
+
+

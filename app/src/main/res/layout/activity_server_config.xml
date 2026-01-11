@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Server Configuration"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="72dp"/>
+
+    <TextView
+        android:id="@+id/tvInstructions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Enter your server URL:\n\n• Same network: http://YOUR_PC_IP:8080\n• Online (ngrok): https://your-id.ngrok-free.app\n• You can enter just the domain (e.g., 37fde60a363c.ngrok-free.app)\n\nNote: For ngrok, make sure your backend is running and ngrok tunnel is active."
+        android:textSize="14sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/etServerUrl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="http://192.168.1.100:8080"
+        android:inputType="textUri"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tvInstructions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTestConnection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Test Connection"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/etServerUrl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Save &amp; Continue"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnTestConnection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

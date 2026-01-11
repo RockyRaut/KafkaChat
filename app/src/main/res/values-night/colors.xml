@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark mode colors -->
+    <color name="message_bubble_sent">#0084FF</color>
+    <color name="message_bubble_received">#3E4042</color>
+    <color name="message_text_sent">#FFFFFF</color>
+    <color name="message_text_received">#E4E6EB</color>
+    <color name="chat_background">#18191A</color>
+    <color name="input_background">#242526</color>
+</resources>
+
+
+
+
+

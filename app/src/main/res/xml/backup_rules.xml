@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Backup rules: Exclude all user data to ensure privacy
+   User data should not be backed up or exported
+-->
+<full-backup-content>
+    <!-- Exclude database files (messages, users, chats) -->
+    <exclude domain="database" path="chat_app_db" />
+    <exclude domain="database" path="chat_app_db-journal" />
+    <exclude domain="database" path="chat_app_db-shm" />
+    <exclude domain="database" path="chat_app_db-wal" />
+    
+    <!-- Exclude shared preferences containing user data -->
+    <exclude domain="sharedpref" path="kafka_chat_prefs.xml" />
+    
+    <!-- Only allow app-specific settings that don't contain user data -->
+</full-backup-content>
